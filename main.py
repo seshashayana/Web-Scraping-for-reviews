@@ -58,7 +58,6 @@ def search_amazon(search_text, url):
         else:
             # Pick first link for scraping reviews
             curr_link = "https://www.amazon.in" + link
-            print(curr_link)
 
             # Pharse the Product WebPage to collect data in machine readable format
             req = urlClient.Request(curr_link, headers={'User-Agent': 'Mozilla/5.0'})
@@ -122,8 +121,7 @@ def search_flipkart(search_text, url):
         all_links = all_links[:len(all_links) - 4]
         links_list = []
         for link in all_links:
-            curr_link = str("https://www.flipkart.com" + link.div.div.div.a['href'])
-            links_list.append(curr_link)
+            links_list.append(link.div.div.div.a['href'])
     except Exception as e:
         print("Something went wrong \n", e)
 
@@ -133,9 +131,7 @@ def search_flipkart(search_text, url):
         if len(reviews) >= 50:
             break
         else:
-            # Pick first link for scraping reviews
-            curr_link = link
-            print(curr_link)
+            curr_link = str("https://www.flipkart.com" + link)
 
             # Pharse the Product WebPage to collect data in machine readable format
             req = urlClient.Request(curr_link, headers={'User-Agent': 'Mozilla/5.0'})
