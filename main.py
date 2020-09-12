@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 import bs4 as bs
 import urllib.request as urlClient
-import pandas as pd
 
 app = Flask(__name__)
 
@@ -67,7 +66,7 @@ def search_amazon(search_text, url):
             soup = bs.BeautifulSoup(res, 'html.parser')
 
             # Collect the links to the listed items in the search output web-page
-            containers = soup.find_all('div', {'id': 'customer_review-%'})
+            containers = soup.find_all('div', {'class': 'a-section celwidget'})
 
             # Scrape for the required data and collect in a dictionary to append into reviews list
             for container in containers:
@@ -155,6 +154,7 @@ def search_flipkart(search_text, url):
 
                 try:
                     rating = container.div.div.div.div.text
+                    rating = str(rating)+".0 of 5.0"
                 except Exception as e:
                     print("Couldn't locate rating \n" + str(e))
 
