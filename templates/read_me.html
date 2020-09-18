@@ -19,25 +19,38 @@
   <nav class="navbar navbar-dark bg-primary" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="{{ url_for('index')}}">
     <img src="../static/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
-      Web Scraper
+      Go Back to Home Page
     </a>
     <a class="navbar-brand" href="{{ url_for('read_me')}}">
       Read Me
     </a>
   </nav>
-
-    <div class="jumbotron jumbotron-fluid">
-      <!-- Main Input For Receiving Query to our Web Scraper -->
-      <div class="container">
-        <form action="{{ url_for('present_reviews')}}" method="POST">
-          <div class="form-group">
-            <label for="search_text">Product Name: </label>
-            <input class="form-group" type="text" name=search_text placeholder="Enter the product name" required="required"/>
-          </div>
-          <button class="btn btn-primary btn-large" type="submit" name="submit_button" value="Search Flipkart" style='margin-right:16px'>Search on Flipkart</button>
-          <br>
-        </form>
-      </div>
+     <div class="jumbotron jumbotron-fluid">
+       <div class="header">Basic Documentation: </div>
+       <h4>Web Review Scraper</h4>
+       <br>
+       <div class = "container">
+           This is a web scraper tool built to scrape reviews from Flipkart website. This tool can be /
+           used to scrape reviews for generic products (Ex: laptops, Mobile Phones, Smartphones etc.) or/
+           for specific products (Ex: iPhone 11, Samsung S51, Dell insperion N5115 etc.).
+           <br>
+           <img src="../static/Step_1.png" width="500" height="300" alt="">
+       </div>
+       <br>
+       <div class = "container">
+           This tool picks the entered string in the text box and performs search in the Flipkart website./
+           It picks the top few products from the result page and scrapes through to get few top reviews /
+           from each of the listed products.
+           <br>
+           <img src="../static/Step_2.png" width="500" height="300" alt="">
+           <img src="../static/Step_3.png" width="500" height="300" alt="">
+       </div>
+       <br>
+       <div class = "container">
+           Finally the reviews are displayed as shown below.
+           <br>
+           <img src="../static/Results.png" width="500" height="300" alt="">
+       </div>
     </div>
  </div>
 </body>
